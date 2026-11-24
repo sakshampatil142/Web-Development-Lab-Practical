@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Expense Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app">
+
+    <!-- Header -->
+    <header class="header">
+      <div>
+        <h1>💸 Student Expense Tracker</h1>
+        <p class="subtitle">Track every rupee. Spend smart, save more.</p>
+      </div>
+      <button id="themeBtn" class="theme-btn" title="Light / Dark mode">☀️</button>
+    </header>
+
+    <!-- Summary cards -->
+    <section class="summary">
+      <div class="summary-card total-card">
+        <span class="summary-label">Total Spent</span>
+        <span class="summary-value">₹<span id="total">0</span></span>
+      </div>
+      <div class="summary-card">
+        <span class="summary-label">Expenses</span>
+        <span class="summary-value" id="count">0</span>
+      </div>
+      <div class="summary-card">
+        <span class="summary-label">Highest</span>
+        <span class="summary-value">₹<span id="highest">0</span></span>
+      </div>
+    </section>
+
+    <!-- Add expense form -->
+    <section class="card">
+      <h2>➕ Add New Expense</h2>
+
+      <div class="form">
+        <div class="field">
+          <label for="name">Expense Name</label>
+          <input type="text" id="name" placeholder="e.g. Lunch, Bus ticket">
+        </div>
+
+        <div class="field">
+          <label for="amount">Amount (₹)</label>
+          <input type="number" id="amount" placeholder="e.g. 150" min="1">
+        </div>
+
+        <div class="field">
+          <label for="category">Category</label>
+          <select id="category">
+            <option value="Food">🍔 Food</option>
+            <option value="Travel">🚌 Travel</option>
+            <option value="Shopping">🛍️ Shopping</option>
+            <option value="Education">📚 Education</option>
+            <option value="Other">📦 Other</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="date">Date</label>
+          <input type="date" id="date">
+        </div>
+      </div>
+
+      <p id="error" class="error"></p>
+
+      <button id="addBtn" class="add-btn">Add Expense</button>
+    </section>
+
+    <!-- Expense list -->
+    <section class="card">
+      <h2>📋 Your Expenses</h2>
+
+      <!-- Search, filter, sort -->
+      <div class="toolbar">
+        <div class="field">
+          <label for="search">Search</label>
+          <input type="text" id="search" placeholder="🔍 Search by name">
+        </div>
+
+        <div class="field">
+          <label for="filter">Filter by category</label>
+          <select id="filter">
+            <option value="All">All</option>
+            <option value="Food">🍔 Food</option>
+            <option value="Travel">🚌 Travel</option>
+            <option value="Shopping">🛍️ Shopping</option>
+            <option value="Education">📚 Education</option>
+            <option value="Other">📦 Other</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="sort">Sort by</label>
+          <select id="sort">
+            <option value="newest">Newest first</option>
+            <option value="oldest">Oldest first</option>
+            <option value="high">Amount: High to Low</option>
+            <option value="low">Amount: Low to High</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- List -->
+      <ul id="expenseList"></ul>
+
+      <!-- Shown when there are no expenses -->
+      <div id="emptyState" class="empty-state">
+        <span>🧾</span>
+        <p>No expenses yet. Add your first one above!</p>
+      </div>
+
+      <button id="clearBtn" class="clear-btn">🗑️ Clear All</button>
+    </section>
+
+    <footer class="footer">Made with ❤️ using HTML, CSS &amp; JavaScript</footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
